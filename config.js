@@ -35,7 +35,7 @@ if (!gg) {
 
 global.owner = gg.split(",");
 global.mongodb = process.env.MONGODB  // paste your own MongoDB url..
-global.sessionId = process.env.SESSION_ID || "ok";
+global.sessionId = process.env.SESSION_ID 
 global.prefa = process.env.PREFIX 
 global.tenorApiKey =
   process.env.TENOR_API_KEY // paste Your own Api Key..
