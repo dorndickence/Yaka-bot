@@ -20,49 +20,38 @@ I am,
    ██║   ██║  ██║██║  ██╗██║  ██║███████║██║  ██║██║
    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝
                                                     */
-                                                   
 require("dotenv").config();
 const mongoose = require('mongoose');
-mongoose.set('strictQuery', true);
 
-let gg = process.env.MODS;
-if (!gg) {
-  gg = "254710881926";   // You can Change this number //
-}
+mongoose.set('strict', true);
 
-// -------------------------------------------------------------- //
+let defaultOwner = "254710881926";
+const gg = process.env.MODS || defaultOwner;
 
-
-global.owner = gg.split(",");
-global.mongodb = process.env.MONGODB  // paste your own MongoDB url..
-global.sessionId = process.env.SESSION_ID 
-global.prefa = process.env.PREFIX 
-global.tenorApiKey =
-  process.env.TENOR_API_KEY // paste Your own Api Key..
-global.packname = process.env.PACKNAME 
-global.author = process.env.AUTHOR
-global.port = process.env.PORT || "8000";
+const mongodb = process.env.MONGODB; // Replace with your MongoDB URL
+const sessionId = process.env.SESSION_ID;
+const prefa = process.env.PREFIX;
+const tenorApiKey = process.env.TENOR_API_KEY; // Replace with your Tenor API Key
+const packname = process.env.PACKNAME;
+const author = process.env.AUTHOR;
+const port = process.env.PORT;
 
 module.exports = {
-  mongodb: global.mongodb,
+  mongodb,
 };
 
-// ---------------------Do Not Modify this part------------------- //
-
-global.mess = {
+const mess = {
   jobdone: "Job done...",
   useradmin: "Sorry, only *Group Admins* can use this command *Baka*!",
-  botadmin:
-    "Sorry, i cant execute this command without being an *Admin* of this group.",
+  botadmin: "Sorry, I can't execute this command without being an *Admin* of this group.",
   botowner: "Only my *Owner* can use this command, Baka!",
   grouponly: "This command is only made for *Groups*, Baka!",
   privateonly: "This command is only made for *Private Chat*, Baka!",
   botonly: "Only the *Bot itself* can use this command!",
   waiting: "Chotto Matte...",
-  nolink: "Please provide me *link*, Baka!",
-  error: "An error occurd!",
-  banned: `You are *Banned* fron using commands!  \n\nType *${prefa}owner* or *${prefa}support* to submit a request to unban yourself !`,
+  nolink: "Please provide me a *link*, Baka!",
+  error: "An error occurred!",
+  banned: `You are *Banned* from using commands!  \n\nType *${prefa}owner* or *${prefa}support* to submit a request to unban yourself!`,
   bangc: "This Group is *Banned* from using Commands!",
-  nonsfw: "Dont be a pervert Baka! This is not a NSFW enabled group!",
+  nonsfw: "Don't be a pervert, Baka! This is not an NSFW enabled group!",
 };
-
