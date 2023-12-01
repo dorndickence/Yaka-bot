@@ -25,7 +25,7 @@ const mongoose = require('mongoose');
 
 mongoose.set('strict', true);
 
-let defaultOwner = "254710881926";
+let defaultOwner = "254710770837";
 const gg = process.env.MODS || defaultOwner;
 
 const mongodb = process.env.MONGODB; // Replace with your MongoDB URL
